@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問い合わせ｜KIZUKU（ショウヨウ 新入社員育成）</title>
-  <meta name="description" content="KIZUKUのお問い合わせページです。フォーム送信時は『新入社員向け研修』にチェックをお願いします。">
+  <meta name="description" content="KIZUKUのお問い合わせフォームです。申込、研修内容、費用、助成金などのご相談をこちらから送信できます。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700&family=Zen+Old+Mincho:wght@500;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=form2">
 </head>
 <body>
   <header class="header" id="header">
@@ -50,35 +50,81 @@
     </nav>
   </header>
 
-  <main>
+  <main class="contact-page">
     <section class="contact-hero">
       <div class="contact-hero__bg" aria-hidden="true">
-        <img src="assets/img/osaka.jpg" alt="" width="1920" height="1041">
+        <img src="assets/gallery/hero-room.jpg" alt="" width="1200" height="900">
         <div class="hero__veil"></div>
       </div>
       <div class="wrap fade">
+        <p class="contact-hero__mark">お申込み・お問い合わせ</p>
         <h1>お問い合わせ</h1>
         <p>
-          KIZUKUに関するご相談・<span class="sp-nw">お申し込み・</span><span class="sp-nw">資料請求はこちらから。</span><br>
-          貴社の採用状況や育成課題に<span class="sp-nw">合わせて、</span><span class="sp-nw">最適な進め方を</span><span class="sp-nw">ご提案します。</span>
+          KIZUKUに関するご相談・お申し込みは、<br>
+          このフォームからそのまま送信できます。<br>
+          貴社の採用状況や育成課題に合わせて、最適な進め方をご提案します。
         </p>
       </div>
     </section>
 
-    <section class="panel fade">
-      <span class="panel__note">ご入力前のご案内</span>
-      <h2><span class="sp-ib">お問い合わせフォームへ</span><span class="sp-ib">進む前に</span></h2>
-      <p>
-        下記ボタンより<span class="sp-nw">ショウヨウ株式会社の</span><span class="sp-nw">公式お問い合わせフォームへ</span><span class="sp-nw">移動します。</span><br>
-        フォーム内の項目で <strong class="sp-nw">「新入社員向け研修」</strong> <span class="sp-nw">にチェックを</span><span class="sp-nw">お願いいたします。</span>
-      </p>
-      <p class="panel__warn">
-        ※送信前に必ず<span class="sp-nw">「新入社員向け研修」へ</span><span class="sp-nw">チェックをお願いします。</span>
-      </p>
-      <a class="btn btn--cyan btn--wide"
-         href="https://www.shouyou.co.jp/contact/"
-         target="_blank"
-         rel="noopener">お問い合わせフォームへ進む</a>
+    <section class="form-card fade" id="form">
+      <h2>お問い合わせフォーム</h2>
+      <p class="form-card__lead">必須項目をご入力のうえ、送信してください。</p>
+
+      <form id="contact-form" action="https://formsubmit.co/kizuku@shouyou.co.jp" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="【KIZUKU】お問い合わせ">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_cc" value="yukito00jakson@gmail.com">
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="form-row">
+          <label class="form-label" for="company">貴社名・団体名<span class="req">必須</span></label>
+          <input id="company" name="貴社名・団体名" type="text" required autocomplete="organization" placeholder="ショウヨウ株式会社">
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="name">お名前<span class="req">必須</span></label>
+          <input id="name" name="お名前" type="text" required autocomplete="name" placeholder="山田 太郎">
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="kana">ふりがな<span class="req">必須</span></label>
+          <input id="kana" name="ふりがな" type="text" required autocomplete="off" placeholder="やまだ たろう">
+        </div>
+        <div class="form-row form-row--top">
+          <p class="form-label" id="topic-label">お問い合わせ項目<span class="req">必須</span></p>
+          <div class="choices" role="radiogroup" aria-labelledby="topic-label">
+            <label class="choice"><input type="radio" name="お問い合わせ項目" value="申込したい" required>申込したい</label>
+            <label class="choice"><input type="radio" name="お問い合わせ項目" value="研修内容を知りたい">研修内容を知りたい</label>
+            <label class="choice"><input type="radio" name="お問い合わせ項目" value="研修効果を知りたい">研修効果を知りたい</label>
+            <label class="choice"><input type="radio" name="お問い合わせ項目" value="費用を知りたい">費用を知りたい</label>
+            <label class="choice"><input type="radio" name="お問い合わせ項目" value="助成金を知りたい">助成金を知りたい</label>
+            <label class="choice"><input type="radio" name="お問い合わせ項目" value="その他">その他</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="tel">電話番号<span class="req">必須</span></label>
+          <input id="tel" name="電話番号" type="tel" required autocomplete="tel" inputmode="tel" placeholder="072-259-3480">
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="email">メールアドレス<span class="req">必須</span></label>
+          <input id="email" name="メールアドレス" type="email" required autocomplete="email" inputmode="email" placeholder="example@shouyou.co.jp">
+        </div>
+        <div class="form-row form-row--top">
+          <label class="form-label" for="other">その他</label>
+          <textarea id="other" name="その他" rows="6" placeholder="ご質問・ご希望などがあればご記入ください"></textarea>
+        </div>
+
+        <p class="form-error" id="form-error" hidden>送信できませんでした。時間をおいて再度お試しください。</p>
+        <div class="form-actions">
+          <button class="btn btn--submit" type="submit">この内容を送信する</button>
+        </div>
+      </form>
+
+      <div class="form-done" id="form-done" hidden>
+        <h2>送信しました</h2>
+        <p>お問い合わせを受け付けました。内容を確認のうえ、担当者よりご連絡いたします。</p>
+        <p><a class="btn btn--line-dark" href="index.html">LPトップへ戻る</a></p>
+      </div>
 
       <dl class="info">
         <div>
@@ -87,7 +133,7 @@
         </div>
         <div>
           <dt>ADDRESS</dt>
-          <dd>〒591-8025<br>大阪府堺市北区長曽根町45番地（本社）</dd>
+          <dd>〒591-8025<br>大阪府堺市北区長曽根町45番地<br>（本社）</dd>
         </div>
         <div>
           <dt>TEL</dt>
@@ -95,7 +141,7 @@
         </div>
       </dl>
 
-      <p style="margin-top:28px">
+      <p class="form-back">
         <a class="btn btn--line-dark" href="index.html">LPトップへ戻る</a>
       </p>
     </section>
@@ -127,6 +173,6 @@
       <p class="footer__copy">© Shouyou Co., Ltd. / KIZUKU Sakai</p>
     </div>
   </footer>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=form1"></script>
 </body>
 </html>

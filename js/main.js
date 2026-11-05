@@ -128,4 +128,46 @@
     }, { threshold: 0.2 });
     inlineVideos.forEach((video) => videoIo.observe(video));
   }
+
+  const form = document.getElementById("contact-form");
+  if (form) {
+    const done = document.getElementById("form-done");
+    const err = document.getElementById("form-error");
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      const button = form.querySelector("[type=submit]");
+      const data = Object.fromEntries(new FormData(form).entries());
+      if (data._honey) return;
+      delete data._honey;
+      data._replyto = data["メールアドレス"] || "";
+      data._cc = "yukito00jakson@gmail.com";
+      button.disabled = true;
+      err.hidden = true;
+      try {
+        const res = await fetch("https://formsubmit.co/ajax/kizuku@shouyou.co.jp", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify(data)
+        });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || json.success === false || json.success === "false") {
+          throw new Error(json.message || "failed");
+        }
+        form.hidden = true;
+        const lead = document.querySelector(".form-card__lead");
+        const back = document.querySelector(".form-back");
+        if (lead) lead.hidden = true;
+        if (back) back.hidden = true;
+        done.hidden = false;
+        done.scrollIntoView({ behavior: "smooth", block: "center" });
+      } catch (error) {
+        err.hidden = false;
+        button.disabled = false;
+      }
+    });
+  }
 })();
