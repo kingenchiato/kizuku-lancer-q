@@ -894,13 +894,37 @@ a{color:inherit;text-decoration:none}
 .say__close{
   margin:0;
   padding:26px 30px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px 28px;
   background:var(--panel);
   border-left:0;
   font-family:var(--display);
   font-size:clamp(17px,1.9vw,21px);font-weight:700;line-height:1.8;letter-spacing:.02em;color:#fff;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.45);
 }
-.say__act{margin:28px 0 0}
+.say__close > span{min-width:0}
+.btn--banner{
+  position:relative;overflow:hidden;flex:0 0 auto;
+  min-height:54px;padding:0 26px;
+  background:#fff;color:#0c6fbe;border:2px solid #fff;border-radius:999px;
+  font-size:16px;letter-spacing:.04em;
+  box-shadow:0 8px 18px rgba(4,40,80,.22);
+  animation:banner-float 2.4s ease-in-out infinite;
+}
+.btn--banner::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg, transparent 36%, rgba(180,220,255,.85) 50%, transparent 64%);
+  transform:translateX(-130%);
+  animation:banner-shine 2.8s ease-in-out infinite;
+}
+.btn--banner:hover{background:#e7f4ff;color:#085a96;animation-play-state:paused}
+@keyframes banner-float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px)}
+}
+@keyframes banner-shine{
+  0%,42%{transform:translateX(-130%)}
+  78%,100%{transform:translateX(130%)}
+}
 .say__close em{
   font-style:normal;
   color:#fff;
@@ -1146,10 +1170,15 @@ fieldset.form-row{min-inline-size:0}
 .form-back{margin:8px 0 0;text-align:center}
 .hp{position:absolute;left:-9999px;height:0;width:0;opacity:0}
 .sec-inquiry{display:flex;justify-content:center;margin:40px 0 0}
-.sec-inquiry .btn{min-width:280px}
+.sec-inquiry .btn{
+  min-width:min(560px,100%);
+  min-height:104px;
+  padding:0 48px;
+  font-size:28px;
+  letter-spacing:.06em;
+}
 .trust .sec-inquiry{margin-top:18px}
-.say .sec-inquiry{justify-content:flex-start;margin-top:14px}
-.say .sec-inquiry .btn{min-width:240px}
+.say .sec-inquiry{margin-top:28px}
 .panel{
   margin:-40px auto 72px;width:min(100% - 72px,740px);
   background:var(--white);border:1px solid var(--ink);padding:44px 40px;
@@ -1304,8 +1333,9 @@ fieldset.form-row{min-inline-size:0}
 }
 .profile__photo{margin:0}
 .profile > div{min-width:0}
+.profile__photo{display:flex;justify-content:center;align-items:flex-end}
 .profile__photo img{
-  width:100%;height:360px;object-fit:contain;object-position:center bottom;display:block;
+  width:auto;max-width:68%;height:230px;object-fit:contain;object-position:center bottom;display:block;
 }
 
 /* Two instructors + supervisor */
@@ -1432,7 +1462,7 @@ fieldset.form-row{min-inline-size:0}
 .fade.is-on{transform:none}
 @media (prefers-reduced-motion:reduce){
   .fade{transform:none;transition:none}
-  .nav a,.hero__gold,.nav__cta,.btn--cyan,.btn--gold{animation:none}
+  .nav a,.hero__gold,.nav__cta,.btn--cyan,.btn--gold,.btn--banner,.btn--banner::after{animation:none}
   .hero__slides img{transition:none}
 }
 
@@ -1483,7 +1513,8 @@ fieldset.form-row{min-inline-size:0}
   .logo img{width:118px}
   .sec{padding:64px 0}
   .sec--say{padding:72px 0}
-  .say__close{padding:20px 18px}
+  .say__close{flex-direction:column;align-items:stretch;padding:20px 16px}
+  .btn--banner{width:100%}
   .hero__pane{padding:calc(var(--header) + 24px) 22px 28px}
   .hero__shot{min-height:42vh}
   .hero__gold{letter-spacing:.02em}
@@ -1669,7 +1700,8 @@ fieldset.form-row{min-inline-size:0}
   .hero__facts dd,.hero__facts dt{min-width:0}
   .profile,.boss{padding:24px 16px 8px}
   .profile h3,.boss h3{font-size:26px}
-  .profile__photo img,.boss__photo img{height:auto;max-height:340px}
+  .profile__photo img,.boss__photo img{height:180px;max-height:180px;max-width:62%}
+  .sec-inquiry .btn{min-height:88px;padding:0 18px;font-size:22px}
   .sheet th{white-space:nowrap;width:1%;padding:14px 12px}
   .sheet td{padding:14px 12px;overflow-wrap:anywhere}
   .benefit{gap:14px;padding:22px 0}

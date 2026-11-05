@@ -137,11 +137,20 @@
       event.preventDefault();
       if (!form.reportValidity()) return;
       const button = form.querySelector("[type=submit]");
-      const data = Object.fromEntries(new FormData(form).entries());
-      if (data._honey) return;
-      delete data._honey;
-      data._replyto = data["メールアドレス"] || "";
-      data._cc = "yukito00jakson@gmail.com";
+      const data = {
+        _subject: "【KIZUKU】お問い合わせ",
+        _template: "table",
+        _captcha: "false",
+        _replyto: form.email.value.trim(),
+        "貴社名・団体名": form.company.value.trim(),
+        "お名前": form.name.value.trim(),
+        "ふりがな": form.kana.value.trim(),
+        "お問い合わせ項目": new FormData(form).get("お問い合わせ項目") || "",
+        "電話番号": form.tel.value.trim(),
+        "メールアドレス": form.email.value.trim(),
+        "その他": form.other.value.trim()
+      };
+      if (form._honey && form._honey.value) return;
       button.disabled = true;
       err.hidden = true;
       try {
