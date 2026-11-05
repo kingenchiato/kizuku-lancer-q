@@ -1171,10 +1171,10 @@ fieldset.form-row{min-inline-size:0}
 .hp{position:absolute;left:-9999px;height:0;width:0;opacity:0}
 .sec-inquiry{display:flex;justify-content:center;margin:40px 0 0}
 .sec-inquiry .btn{
-  min-width:min(560px,100%);
-  min-height:104px;
-  padding:0 48px;
-  font-size:28px;
+  min-width:min(336px,100%);
+  min-height:62px;
+  padding:0 34px;
+  font-size:17px;
   letter-spacing:.06em;
 }
 .trust .sec-inquiry{margin-top:18px}
@@ -1701,7 +1701,6 @@ fieldset.form-row{min-inline-size:0}
   .profile,.boss{padding:24px 16px 8px}
   .profile h3,.boss h3{font-size:26px}
   .profile__photo img,.boss__photo img{height:180px;max-height:180px;max-width:62%}
-  .sec-inquiry .btn{min-height:88px;padding:0 18px;font-size:22px}
   .sheet th{white-space:nowrap;width:1%;padding:14px 12px}
   .sheet td{padding:14px 12px;overflow-wrap:anywhere}
   .benefit{gap:14px;padding:22px 0}
