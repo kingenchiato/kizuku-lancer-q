@@ -77,44 +77,6 @@
     }
   }
 
-  const heroVideo = document.querySelector(".hero__video");
-  const pauseBtn = document.querySelector(".hero__pause");
-  if (heroVideo && pauseBtn) {
-    if (reduce) heroVideo.pause();
-    const syncPause = () => {
-      const paused = heroVideo.paused;
-      pauseBtn.classList.toggle("is-paused", paused);
-      pauseBtn.setAttribute("aria-pressed", paused ? "true" : "false");
-      pauseBtn.setAttribute("aria-label", paused ? "動画を再生" : "動画を一時停止");
-    };
-    pauseBtn.addEventListener("click", () => {
-      if (heroVideo.paused) {
-        const play = heroVideo.play();
-        if (play) play.catch(() => {});
-      } else {
-        heroVideo.pause();
-      }
-      syncPause();
-    });
-    heroVideo.addEventListener("play", syncPause);
-    heroVideo.addEventListener("pause", syncPause);
-  }
-
-  const heroPane = document.querySelector(".hero__pane");
-  const hero = document.querySelector(".hero");
-  const fitHero = () => {
-    if (!hero || !heroPane) return;
-    heroPane.style.zoom = "1";
-    const needed = heroPane.offsetHeight;
-    const avail = hero.clientHeight;
-    if (!needed || !avail) return;
-    const reserve = Math.min(76, Math.round(avail * 0.07));
-    heroPane.style.zoom = String(Math.min(1, (avail - reserve) / needed));
-  };
-  fitHero();
-  window.addEventListener("resize", fitHero);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitHero);
-
   document.querySelectorAll(".vslot__play").forEach((btn) => {
     btn.addEventListener("click", () => {
       const video = document.createElement("video");
