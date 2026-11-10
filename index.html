@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=IBM+Plex+Sans+JP:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700&family=Zen+Old+Mincho:wght@500;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=form5">
+  <link rel="stylesheet" href="css/style.css?v=fvnight6">
 </head>
 <body>
   <header class="header" id="header">
@@ -61,15 +61,18 @@
 
   <main id="top">
     <section class="hero" aria-label="ファーストビュー">
+      <div class="hero__media">
+        <video class="hero__video" autoplay muted loop playsinline poster="assets/video/tokyo-night.jpg?v=hq1">
+          <source src="assets/video/tokyo-night.mp4?v=hq1" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero__shade" aria-hidden="true"></div>
       <div class="hero__pane fade">
         <p class="hero__mark"><span class="sp-ib">新入社員合同研修</span>　／　<span class="sp-ib">堺・なかもず</span>　／　<span class="sp-ib">2027</span></p>
         <p class="hero__program">新入社員育成プログラム</p>
         <p class="hero__brand">「<span>KIZUKU</span>」</p>
         <h1 class="hero__catch">
           <span class="hero__gold">現場に任せて、<br>終わりですか。</span>
-          <span class="hero__reflect" aria-hidden="true">
-            <span class="hero__gold hero__gold--mirror">終わりですか。</span>
-          </span>
         </h1>
         <p class="hero__sub"><span class="sp-ib">採用の先まで、</span><span class="sp-ib">育てきる。</span></p>
         <p class="hero__lead">
@@ -86,17 +89,10 @@
           <a class="btn btn--gold-ghost" href="#program">15日の内容を見る</a>
         </div>
       </div>
-      <div class="hero__shot">
-        <div class="hero__slides">
-          <img class="is-on" src="assets/gallery/hero-room.jpg" alt="研修会場でワークに取り組む新入社員" width="1200" height="900">
-          <img src="assets/gallery/hero-group.jpg" alt="研修の集合写真" width="1200" height="900">
-        </div>
-        <div class="hero__shot-veil" aria-hidden="true"></div>
-        <div class="hero__dots" role="tablist" aria-label="写真の切り替え">
-          <button class="hero__dot is-on" type="button" aria-label="研修会場"></button>
-          <button class="hero__dot" type="button" aria-label="集合写真"></button>
-        </div>
-      </div>
+      <a class="hero__scroll" href="#why">SCROLL</a>
+      <button class="hero__pause" type="button" aria-label="動画を一時停止" aria-pressed="false">
+        <span></span><span></span>
+      </button>
     </section>
 
     <section class="sec" id="why">
@@ -807,6 +803,6 @@
       <p class="footer__copy">© Shouyou Co., Ltd. / KIZUKU Sakai</p>
     </div>
   </footer>
-  <script src="js/main.js?v=form4"></script>
+  <script src="js/main.js?v=fvnight6"></script>
 </body>
 </html>
